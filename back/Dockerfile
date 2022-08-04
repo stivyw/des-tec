@@ -1,5 +1,7 @@
 FROM node:16-alpine
 
+RUN yarn global add sequelize-cli
+
 USER node
 
 WORKDIR /home/node/app

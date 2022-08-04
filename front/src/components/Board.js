@@ -40,6 +40,7 @@ const Board = () => {
     const addCardHandler = lista => async (titulo, conteudo) => {
         const newCard = { lista, titulo, conteudo };
         const savedCard = await addCard(newCard);
+        console.log(cards)
         setCards([savedCard, ...cards]);
     }
 

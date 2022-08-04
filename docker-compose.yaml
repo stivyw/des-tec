@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  front:
+    build:
+      context: front
+      # dockerfile: Dockerfile
+    container_name: destec-front
+    # user: 1000:1000
+    # working_dir: /home/node/app
+    volumes:
+      - "./front:/home/node/app"
+    environment:
+      - NODE_ENV=development
+      - TZ=America/Fortaleza
+    ports:
+      - "3000:3000"
+  back:
+    build:
+      context: back
+      # dockerfile: Dockerfile
+    container_name: destec-back
+    # user: 1000:1000
+    # working_dir: /home/node/app
+    volumes:
+      - "./back:/home/node/app"
+    environment:
+      - NODE_ENV=development
+      - TZ=America/Fortaleza
+    ports:
+      - "5000:5000"
+    command: yarn start:dev
+    env_file:
+      - .env
+    # command: npm run start:back
